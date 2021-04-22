@@ -1,11 +1,8 @@
 pipeline {
   agent any
-  options {
-    // Stop the build early in case of compile or test failures
-    skipStagesAfterUnstable()
-  }
+  
   stages {
-    
+     
     stage('Compile') {
       steps {
         echo "-------------------Compiling App and its dependencies--------------------'"
@@ -67,7 +64,7 @@ pipeline {
     }
     stage('Lint Check') {
       steps {
-        sh "echo '-------------------Running Lint checks--------------------'"
+         echo "'-------------------Running Lint checks--------------------'"
         
         // Run Lint and analyse the results
         bat './gradlew lintDebug'
