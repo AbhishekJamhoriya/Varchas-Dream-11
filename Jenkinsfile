@@ -32,14 +32,7 @@ pipeline {
       }
     }
       
-    stage('Lint Check') {
-      steps {
-         echo "Running Lint checks"
-        
-        bat './gradlew lintDebug'
-        
-      }
-    }
+    
      
     stage('Deploy') {
       
