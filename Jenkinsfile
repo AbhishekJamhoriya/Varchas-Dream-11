@@ -5,27 +5,7 @@ pipeline {
     skipStagesAfterUnstable()
   }
   stages {
-    stage('Permissions') {
-      // This stage is set to access some permissions in Ubuntu machine
-      steps {
-        
-         echo "-------------------Asking for permissions--------------------"
-        
-        bat 'ls -la ./gradlew'
-        bat 'chmod +x ./gradlew'
-        bat 'ls -la ./gradlew'
-      }
-      post {
-        success {
-          // Notify permissions granted
-           echo "Permissions granted!!"
-        }
-        failure {
-          // Notify permissions denied
-          echo "Oops!! Permissions denied.'"
-        }
-      }
-    }
+    
     stage('Compile') {
       steps {
         echo "-------------------Compiling App and its dependencies--------------------'"
